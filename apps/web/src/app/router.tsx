@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import AppLayout from "@/layouts/AppLayout";
 import DashboardPage from "@/features/dashboard/pages/DashboardPage";
-import WelcomePage from "@/features/auth/pages/WelcomePage";
+import StartupFlowPage from "@/features/startup/pages/StartupFlowPage";
 import TradingPage from "@/features/trading/pages/TradingPage";
 import BusinessPage from "@/features/business/pages/BusinessPage";
 import ProjectsPage from "@/features/projects/pages/ProjectsPage";
@@ -12,10 +12,18 @@ import SettingsPage from "@/features/settings/pages/SettingsPage";
 export const router = createBrowserRouter([
   {
     path: "/",
+    element: <StartupFlowPage />,
+  },
+  {
+    path: "/welcome",
+    element: <StartupFlowPage />,
+  },
+  {
+    path: "/",
     element: <AppLayout />,
     children: [
       {
-        index: true,
+        path: "dashboard",
         element: <DashboardPage />,
       },
       {
@@ -43,9 +51,5 @@ export const router = createBrowserRouter([
         element: <SettingsPage />,
       },
     ],
-  },
-  {
-    path: "/welcome",
-    element: <WelcomePage />,
   },
 ]);
